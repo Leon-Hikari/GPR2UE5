@@ -4,8 +4,8 @@
 
 void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
 {
-    int dmg1=-1;
-    int dmg2=-1;
+    int dmg1=0;
+    int dmg2=0;
     string dmgS;
     fighter * winner = nullptr;
     fighter * looser = nullptr;
@@ -32,7 +32,7 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
     if ((dmg1 > dmg2 && fighter1->getLifePoints()>0) || fighter2->getLifePoints()<=0)
     {
         winnerdmg=&dmg1;
-        if (dmg2==-1)
+        if (fighter2->getLifePoints()<=0 && dmg2==0)
             looserdmg=&noattack;
         else
         {
@@ -45,7 +45,7 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
     else if ((dmg2 > dmg1 && fighter2->getLifePoints()>0) || fighter1->getLifePoints()<=0)
     {
         winnerdmg=&dmg2;
-        if (dmg1==-1)
+        if (fighter1->getLifePoints()<=0 && dmg1==0)
             looserdmg=&noattack;
         else
         {
@@ -133,12 +133,12 @@ void fightOneOnOne(bool toKO)
 // BESTÄTIGUNG DER LAST MAN STANDING AUSWAHL UND ERKLÄRUNG VON DIESER UND INITIALISIERUNG DES KAMPFES
 void fightLastManStanding()
 {
+    int numberFighters=createdFighters.size();
     cout << "So you have come to the big battle arena." <<
     endl << "Here all the registered fighters will fight each other randomly one by one until only one of them is last standing." <<
+    endl << "There is a total of " << numberFighters << " who will compete in this battle. " <<
     endl << "Let the battle begin!" <<
     endl << endl;
-
-    int numberFighters=createdFighters.size();
 
 
 
