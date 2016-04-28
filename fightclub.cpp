@@ -41,9 +41,10 @@ int main()
     {
         cout << "Choose what you want: " <<
         endl << " 1) Battlemode: Last Man Standing" <<
-        endl << " 2) Battlemode: Choose Opponents" <<
-        endl << " 3) Register new fighter" <<
-        endl << " 4) Leave the Fight Club" <<
+        endl << " 2) Battlemode: Single Fight" <<
+        endl << " 3) Battlemode: Fight to KO" <<
+        endl << " 4) Register new fighter" <<
+        endl << " 5) Leave the Fight Club" <<
         endl << endl;
 
         getline(cin, inputS);
@@ -52,11 +53,13 @@ int main()
         {
             case 1: fightLastManStanding();
                     break;
-            case 2: fightOneOnOne();
+            case 2: fightOneOnOne(false);
                     break;
-            case 3: createFighter();
+            case 3: fightOneOnOne(true);
                     break;
-            case 4: return 0;
+            case 4: createFighter();
+                    break;
+            case 5: return 0;
                     break;
             default:    wrongInputNumber();
                         break;

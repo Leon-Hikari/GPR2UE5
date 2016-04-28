@@ -7,7 +7,7 @@
 
 // IN FIGHTS.CPP
 void fightLastManStanding();
-void fightOneOnOne();
+void fightOneOnOne(bool toKO);
 
 // IN FIGHTERCREATION.CPP
 void createFighter();
