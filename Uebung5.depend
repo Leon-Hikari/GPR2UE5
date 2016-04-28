@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1461858725 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\fightclub.cpp
+	<iostream>
+	<string>
+	<random>
+	<map>
+	"fighters.h"
+	"fightclub.h"
+	<ctime>
+
+1461859104 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\fighters.h
+	<string>
+
+1461843368 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\fightclub.h
+	<map>
+	<string>
+	"fighters.h"
+
+1461858975 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\fightercreation.cpp
+	<string>
+	<iostream>
+	"fighters.h"
+	"fightclub.h"
+
+1461857596 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\fighters.cpp
+	<string>
+	"fighters.h"
+	"fightclub.h"
+
+1461857969 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\fights.cpp
+	<iostream>
+	"fighters.h"
+	"fightclub.h"
+
