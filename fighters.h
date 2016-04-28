@@ -36,11 +36,14 @@ public:
 class tank : public fighter {
 public:
     tank(const string &name):fighter(name){};
+    void takesDamage(int damage);
 };
 
 class pinkFluffyUnicorn : public fighter {
 public:
     pinkFluffyUnicorn(const string &name):fighter(name){};
+    void takesDamage(int damage);
+    int dealsDamage();
 };
 
 #endif // FIGHTERS_H_INCLUDED

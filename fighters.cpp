@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+#include <stdexcept>
 #include "fighters.h"
 #include "fightclub.h"
 
@@ -64,6 +66,7 @@ Spezifische Funktionen von UNTERKLASSEN ZU FIGHTER
 
 int warrior::dealsDamage()
 {
+    int dmg=0;
     if (!knockedOut)
     {
         int dmg=randomGenerator(offensePoints);
@@ -71,9 +74,8 @@ int warrior::dealsDamage()
         {
             dmg*=2;
         }
-        return dmg;
     }
-    return -1;
+    return dmg;
 }
 
 void ninja::takesDamage(int damage)
@@ -91,4 +93,54 @@ void ninja::takesDamage(int damage)
         }
     }
     return;
+}
+
+void tank::takesDamage(int damage)
+{
+    lifePoints-=damage;
+    if (lifePoints<=0)
+    {
+        knockedOut=true;
+    }
+    else
+    {
+        if (randomGenerator(1,6))
+        {
+            lifePoints+=randomGenerator(defensePoints/4, defensePoints*2);
+        }
+    }
+    return;
+}
+
+int pinkFluffyUnicorn::dealsDamage()
+{
+    int dmg=0;
+    if (!knockedOut)
+    {
+        dmg=randomGenerator(offensePoints);
+        if (dmg-2>=offensePoints)
+        {
+            dmg=lifePoints;
+            lifePoints=0;
+            cout << endl << "Pink Fluffy Unicorn exploded in the face of its opponent." << endl;
+            knockedOut=true;
+        }
+
+    }
+    return dmg;
+}
+void pinkFluffyUnicorn::takesDamage(int damage)
+{
+    lifePoints-=damage;
+    if (lifePoints<=0)
+    {
+        knockedOut=true;
+    }
+    else if (randomGenerator(100,1)==1)
+    {
+        //Keine Ahnung von wegen ob das Memory Leaks erzeugt ...
+        cout << endl << "The pink fluffy unicorn " << mname << " went into a rage after it was attacked and destroyed the whole fight club, killing everyone including you in the process." << endl << endl;
+        throw std::invalid_argument("The fight club and you ceased to exist");
+
+    }
 }
