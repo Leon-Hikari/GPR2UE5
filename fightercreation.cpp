@@ -68,3 +68,11 @@ void destroyFighters() {
 	}
 	createdFighters.clear();
 }
+
+void deleteKOedFighter(fighter* fighter1) {
+	if (fighter1->getLifePoints() <= 0)
+	{
+		createdFighters.erase(fighter1->mname);
+		delete fighter1;
+	}
+}

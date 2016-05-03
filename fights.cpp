@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "fighters.h"
 #include "fightclub.h"
 
@@ -19,14 +20,16 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
         dmg1=fighter1->dealsDamage();
         fighter2->takesDamage(dmg1);
         dmg2=fighter2->returnsDamage();
-        fighter1->takesDamage(dmg2);
+		if (dmg2>=0)
+			fighter1->takesDamage(dmg2);
     }
     else
     {
         dmg2=fighter2->dealsDamage();
         fighter1->takesDamage(dmg2);
         dmg1=fighter1->returnsDamage();
-        fighter2->takesDamage(dmg1);
+		if (dmg1>=0)
+			fighter2->takesDamage(dmg1);
     }
     //Eruierung des Siegers: Jener der mehr Schaden ausgeteilt hat oder der der letzte noch stehende ist
     if ((dmg1 > dmg2 && fighter1->getLifePoints()>0) || fighter2->getLifePoints()<=0)
@@ -68,8 +71,14 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
         cout << "The round ended in a draw." << endl;
         cout << fighter1->mname << " has " << fighter1->getLifePoints() << " lifepoints remaining, " << fighter2->mname << " has " << fighter2->getLifePoints()<< " lifepoints remaining." << endl << endl;
     }
+
+
+	deleteKOedFighter(fighter1);
+	deleteKOedFighter(fighter2);
 }
 
+
+/*
 // EINER GEGEN EINEN KAMPF MIT DEN KLASSEN DER KÄMPFERN ÜBERGEBEN FINDET STATT
 void commenceFightOneOnOneToKO(fighter * fighter1, fighter * fighter2)
 {
@@ -85,6 +94,7 @@ void commenceFightOneOnOneToKO(fighter * fighter1, fighter * fighter2)
         cout << fighter1->mname << " with " << fighter1->getLifePoints() << " lifepoints remaining";
     cout  << "!" << endl << endl;
 }
+*/
 
 // MENÜ ZUR AUSWAHL DER KÄMPFER UND ZUM INITIALISIEREN DES KAMPFES
 void fightOneOnOne(bool toKO)
@@ -121,7 +131,7 @@ void fightOneOnOne(bool toKO)
 
     if (toKO)
     {
-        commenceFightOneOnOneToKO(createdFighters[fighter1], createdFighters[fighter2]);
+        //commenceFightOneOnOneToKO(createdFighters[fighter1], createdFighters[fighter2]);
     }
     else
     {
@@ -133,13 +143,58 @@ void fightOneOnOne(bool toKO)
 // BESTÄTIGUNG DER LAST MAN STANDING AUSWAHL UND ERKLÄRUNG VON DIESER UND INITIALISIERUNG DES KAMPFES
 void fightLastManStanding()
 {
+	int nbfighterA;
+	int nbfighterB;
     int numberFighters=createdFighters.size();
-    cout << "So you have come to the big battle arena." <<
-    endl << "Here all the registered fighters will fight each other randomly one by one until only one of them is last standing." <<
-    endl << "There is a total of " << numberFighters << " who will compete in this battle. " <<
-    endl << "Let the battle begin!" <<
-    endl << endl;
+	vector<fighter*> v;
+
+	bool fightsremaining = true;
+
+	if (numberFighters > 1)
+	{
+		cout << "So you have come to the big battle arena." <<
+			endl << "Here all the registered fighters will fight each other randomly one by one until only one of them is last standing." <<
+			endl << "There is a total of " << numberFighters << " who will compete in this battle. " <<
+			endl << "Let the battle begin!" <<
+			endl << endl;
+
+		while (fightsremaining)
+		{
+			for (map <string, fighter*>::iterator it = createdFighters.begin(); it != createdFighters.end(); ++it) {
+				v.push_back(it->second);
+			}
+
+			numberFighters = v.size();
+			if (numberFighters > 1)
+			{
+
+				nbfighterA = randomGenerator(numberFighters - 1, 0);
 
 
+
+				do {
+					nbfighterB = randomGenerator(numberFighters - 1, 0);
+
+				} while (nbfighterA == nbfighterB);
+
+				commenceFightOneOnOne(v[nbfighterA], v[nbfighterB]);
+			}
+			else
+			{
+				fightsremaining = false;
+			}
+
+			v.clear();
+			if (!fightsremaining && createdFighters.size() == 1)
+			{
+				//fighter* lastfighter = createdFighters.begin()->second;
+				cout << "The winner of the Last Man Standing event is: " << createdFighters.begin()->second->mname << endl << endl;
+			}
+		}
+	}
+	else
+	{
+		cout << "There are not enough fighters registered for this event!" << endl << endl;
+	}
 
 }

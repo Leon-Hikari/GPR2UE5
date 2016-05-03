@@ -42,7 +42,7 @@ int main()
         cout << "Choose what you want: " <<
         endl << " 1) Battlemode: Last Man Standing" <<
         endl << " 2) Battlemode: Single Fight" <<
-        endl << " 3) Battlemode: Fight to KO" <<
+     //   endl << " 3) Battlemode: Fight to KO" <<
         endl << " 4) Register new fighter" <<
         endl << " 5) Leave the Fight Club" <<
         endl << endl;
@@ -55,8 +55,8 @@ int main()
                     break;
             case 2: fightOneOnOne(false);
                     break;
-            case 3: fightOneOnOne(true);
-                    break;
+           // case 3: fightOneOnOne(true);
+             //       break;
             case 4: createFighter();
                     break;
 			case 5: destroyFighters();

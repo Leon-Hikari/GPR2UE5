@@ -44,6 +44,7 @@ public:
     pinkFluffyUnicorn(const string &name):fighter(name){};
     void takesDamage(int damage);
     int dealsDamage();
+	int returnsDamage();
 };
 
 #endif // FIGHTERS_H_INCLUDED

@@ -73,6 +73,7 @@ int warrior::dealsDamage()
         if (randomGenerator(6,1)==6)
         {
             dmg*=2;
+			cout << mname << " hit pretty hard!" << endl;
         }
     }
     return dmg;
@@ -83,6 +84,7 @@ void ninja::takesDamage(int damage)
     if (randomGenerator(6,1)==6)
     {
         //Kein Schaden
+		cout << mname << " evaded the attack!" << endl;
     }
     else
     {
@@ -104,9 +106,15 @@ void tank::takesDamage(int damage)
     }
     else
     {
-        if (randomGenerator(6,1))
+        if (randomGenerator(6,1)==1)
         {
-            lifePoints+=randomGenerator(defensePoints/4, defensePoints*2);
+			int max = damage * 2;
+				if (max > defensePoints * 2)
+				{
+					max = defensePoints * 2;
+				}
+            lifePoints+=randomGenerator(max, defensePoints/4);
+			cout << mname << " is standing a little bit stronger than expected!" << endl;
         }
     }
     return;
@@ -114,18 +122,17 @@ void tank::takesDamage(int damage)
 
 int pinkFluffyUnicorn::dealsDamage()
 {
-    int dmg=0;
+    int dmg=-1;
     if (!knockedOut)
     {
         dmg=randomGenerator(offensePoints);
-        if (dmg-2>=offensePoints)
+        if (dmg+1>=offensePoints)
         {
             dmg=lifePoints;
             lifePoints=0;
-            cout << endl << "Pink Fluffy Unicorn exploded in the face of its opponent." << endl;
+            cout  << "Pink Fluffy Unicorn exploded in the face of its opponent." << endl;
             knockedOut=true;
         }
-
     }
     return dmg;
 }
@@ -138,7 +145,7 @@ void pinkFluffyUnicorn::takesDamage(int damage)
     }
     else if (randomGenerator(75)==1)
     {
-        cout << endl << "The pink fluffy unicorn "<< mname << " didn't want to fight anymore and danced away on rainbows."
+        cout << "The pink fluffy unicorn "<< mname << " didn't want to fight anymore and danced away on rainbows."
         << endl << "The judge decided that counts as a loss for " << mname;
         lifePoints=0;
         knockedOut=true;
@@ -149,16 +156,20 @@ int pinkFluffyUnicorn::returnsDamage()
 {
     if (lifePoints > 0)
     {
-        if (randomGenerator(1000)==1)
+        //if (randomGenerator(1000)==1)
         {
+			/*
             //Keine Ahnung von wegen ob das Memory Leaks erzeugt ...
             cout << endl << "The pink fluffy unicorn " << mname << " went into a rage after it was attacked and destroyed the whole fight club, killing everyone including you in the process." << endl << endl;
-            throw std::invalid_argument("The fight club and you ceased to exist");
+            //throw std::invalid_argument("The fight club and you ceased to exist");
+			destroyFighters();
+			cout << "The fight club and you ceased to exist" << ;*/
         }
-        else
+       // else
         {
             return randomGenerator(defensePoints);
         }
 
     }
+	return -1;
 }
