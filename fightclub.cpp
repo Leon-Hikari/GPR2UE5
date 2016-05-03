@@ -59,7 +59,8 @@ int main()
                     break;
             case 4: createFighter();
                     break;
-            case 5: return 0;
+			case 5: destroyFighters();
+					return 0;
                     break;
             default:    wrongInputNumber();
                         break;

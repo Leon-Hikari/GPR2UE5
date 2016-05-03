@@ -11,6 +11,7 @@ void fightOneOnOne(bool toKO);
 
 // IN FIGHTERCREATION.CPP
 void createFighter();
+void destroyFighters();
 
 // IN FIGHTCLUB.CPP
 void wrongInputNumber();

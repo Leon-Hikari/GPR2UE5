@@ -61,3 +61,10 @@ void createFighter()
     }
     return;
 }
+
+void destroyFighters() {
+	for (map <string, fighter*>::iterator i = createdFighters.begin(); i != createdFighters.end(); i++) {
+		delete i->second;
+	}
+	createdFighters.clear();
+}
