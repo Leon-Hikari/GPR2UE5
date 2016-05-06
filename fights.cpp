@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include "fighters.h"
 #include "fightclub.h"
+
+using namespace std;
 
 void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
 {
@@ -31,12 +34,12 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
     else
     {
         dmg2=fighter2->dealsDamage();
-        cout << fighter2->mname << " counterattacks with " << dmg2 << " points of damage" << endl;
+        cout << fighter2->mname << " attacks with " << dmg2 << " points of damage" << endl;
         fighter1->takesDamage(dmg2);
         dmg1=fighter1->returnsDamage();
 		if (dmg1>=0)
         {
-            cout << fighter1->mname << " attacks with " << dmg1 << " points of damage" << endl;
+            cout << fighter1->mname << " counterattacks with " << dmg1 << " points of damage" << endl;
             fighter2->takesDamage(dmg1);
         }
 
@@ -82,9 +85,9 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
         cout << fighter1->mname << " has " << fighter1->getLifePoints() << " lifepoints remaining, " << fighter2->mname << " has " << fighter2->getLifePoints()<< " lifepoints remaining." << endl << endl;
     }
 
-
 	deleteKOedFighter(fighter1);
 	deleteKOedFighter(fighter2);
+	return;
 }
 
 
@@ -101,9 +104,9 @@ void commenceFightOneOnOneToKO(fighter * fighter1, fighter * fighter2)
     }
     cout << endl << "And the winner in the fight between " <<
     fighter1name << " and " << fighter2name << " is: " << endl;
-    if (fighter1)
+    if (createdFighters[fighter1name])
         cout << fighter1->mname << " with " << fighter1->getLifePoints() << " lifepoints remaining";
-    else if (fighter2)
+    else if (createdFighters[fighter2name])
         cout << fighter2->mname << " with " << fighter2->getLifePoints() << " lifepoints remaining";
     cout  << "!" << endl << endl;
 }
@@ -138,6 +141,7 @@ void fightOneOnOne(bool toKO)
         if (error)
         {
             cout << "Please choose existing fighters!" << endl << endl;
+            return;
         }
 
     }while (error);
@@ -190,6 +194,7 @@ void fightLastManStanding()
 
 				} while (nbfighterA == nbfighterB);
 
+                cout << v[nbfighterA]->mname << " and " << v[nbfighterB]->mname << " step into the ring!" << endl;
 				commenceFightOneOnOne(v[nbfighterA], v[nbfighterB]);
 			}
 			else

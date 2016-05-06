@@ -13,6 +13,7 @@ void fightOneOnOne(bool toKO);
 void createFighter();
 void destroyFighters();
 void deleteKOedFighter(fighter* fighter1);
+void retireFighter();
 
 // IN FIGHTCLUB.CPP
 void wrongInputNumber();

@@ -44,10 +44,12 @@ int main()
         endl << " 2) Battlemode: Single Fight" <<
         endl << " 3) Battlemode: Fight to KO" <<
         endl << " 4) Register new fighter" <<
-        endl << " 5) Leave the Fight Club" <<
+        endl << " 5) Retire one of the fighters" <<
+        endl << " 6) Leave the Fight Club" <<
         endl << endl;
 
         getline(cin, inputS);
+        cout << endl;
         inputI=inputS[0]-'0';
         switch (inputI)
         {
@@ -59,7 +61,9 @@ int main()
                     break;
             case 4: createFighter();
                     break;
-			case 5: destroyFighters();
+            case 5: retireFighter();
+                    break;
+			case 6: destroyFighters();
 					return 0;
                     break;
             default:    wrongInputNumber();

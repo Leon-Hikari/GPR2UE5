@@ -69,10 +69,32 @@ void destroyFighters() {
 	createdFighters.clear();
 }
 
+void deleteFighter(fighter* fighter1)
+{
+    createdFighters.erase(fighter1->mname);
+    delete fighter1;
+    fighter1=nullptr;
+}
+
 void deleteKOedFighter(fighter* fighter1) {
 	if (fighter1->getLifePoints() <= 0)
 	{
-		createdFighters.erase(fighter1->mname);
-		delete fighter1;
+        deleteFighter(fighter1);
 	}
+}
+
+void retireFighter()
+{
+    string input;
+    cout << "Which fighter do you wish to withdraw from the tournament registration?" << endl;
+    getline (cin, input);
+    if(createdFighters[input])
+    {
+        deleteFighter(createdFighters[input]);
+        cout << "We have withdrawn the registration of " << input << endl << endl;
+    }
+    else
+    {
+        cout << "We don't have anyone registered under this name." << endl << endl;
+    }
 }
