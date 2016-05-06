@@ -19,6 +19,11 @@ fighter::fighter(const string &name):mname(name)
     knockedOut=false;
 };
 
+fighter::~fighter()
+{
+
+};
+
 void fighter::takesDamage(int damage)
 {
     lifePoints-=damage;
@@ -145,19 +150,22 @@ void pinkFluffyUnicorn::takesDamage(int damage)
     }
     else if (randomGenerator(75)==1)
     {
-        cout << "The pink fluffy unicorn "<< mname << " didn't want to fight anymore and danced away on rainbows."
+        cout << "The pink fluffy unicorn "<< mname << " didn't want to fight anymore and thus danced away on rainbows."
         << endl << "The judge decided that counts as a loss for " << mname;
         lifePoints=0;
         knockedOut=true;
     }
+    return;
 }
 
 int pinkFluffyUnicorn::returnsDamage()
 {
     if (lifePoints > 0)
     {
-        //if (randomGenerator(1000)==1)
+        if (randomGenerator(75)==1)
         {
+            cout << mname << " used its rainbow beam to defend itself and thus did over 9000 damage!" << endl;
+            return 9001;
 			/*
             //Keine Ahnung von wegen ob das Memory Leaks erzeugt ...
             cout << endl << "The pink fluffy unicorn " << mname << " went into a rage after it was attacked and destroyed the whole fight club, killing everyone including you in the process." << endl << endl;
@@ -165,7 +173,7 @@ int pinkFluffyUnicorn::returnsDamage()
 			destroyFighters();
 			cout << "The fight club and you ceased to exist" << ;*/
         }
-       // else
+        else
         {
             return randomGenerator(defensePoints);
         }

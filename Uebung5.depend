@@ -32,26 +32,28 @@
 	"fighters.h"
 	"fightclub.h"
 
-1461858975 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightercreation.cpp
+1462530429 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightercreation.cpp
 	<string>
 	<iostream>
 	"fighters.h"
 	"fightclub.h"
 
-1461866939 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.h
+1462531211 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.h
 	<string>
 
-1461862307 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.h
+1462530429 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.h
 	<map>
 	<string>
 	"fighters.h"
 
-1461859104 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.cpp
+1462531211 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.cpp
 	<string>
+	<iostream>
+	<stdexcept>
 	"fighters.h"
 	"fightclub.h"
 
-1461862307 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.cpp
+1462530867 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.cpp
 	<iostream>
 	<string>
 	<random>
@@ -59,4 +61,10 @@
 	"fighters.h"
 	"fightclub.h"
 	<ctime>
+
+1462530867 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fights.cpp
+	<iostream>
+	<vector>
+	"fighters.h"
+	"fightclub.h"
 

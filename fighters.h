@@ -11,6 +11,7 @@ public:
     virtual void takesDamage(int damage);
     virtual int dealsDamage();
     virtual int returnsDamage();
+    virtual ~fighter();
     int getLifePoints();
     int getOffensePoints();
     int getDefensePoints();

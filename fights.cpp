@@ -18,24 +18,34 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
     if (randomGenerator(1))
     {
         dmg1=fighter1->dealsDamage();
+        cout << fighter1->mname << " attacks with " << dmg1 << " points of damage" << endl;
         fighter2->takesDamage(dmg1);
         dmg2=fighter2->returnsDamage();
 		if (dmg2>=0)
-			fighter1->takesDamage(dmg2);
+        {
+            cout << fighter2->mname << " counterattacks with " << dmg2 << " points of damage" << endl;
+            fighter1->takesDamage(dmg2);
+        }
+
     }
     else
     {
         dmg2=fighter2->dealsDamage();
+        cout << fighter2->mname << " counterattacks with " << dmg2 << " points of damage" << endl;
         fighter1->takesDamage(dmg2);
         dmg1=fighter1->returnsDamage();
 		if (dmg1>=0)
-			fighter2->takesDamage(dmg1);
+        {
+            cout << fighter1->mname << " attacks with " << dmg1 << " points of damage" << endl;
+            fighter2->takesDamage(dmg1);
+        }
+
     }
     //Eruierung des Siegers: Jener der mehr Schaden ausgeteilt hat oder der der letzte noch stehende ist
     if ((dmg1 > dmg2 && fighter1->getLifePoints()>0) || fighter2->getLifePoints()<=0)
     {
         winnerdmg=&dmg1;
-        if (fighter2->getLifePoints()<=0 && dmg2==0)
+        if (fighter2->getLifePoints()<=0 && dmg2==-1)
             looserdmg=&noattack;
         else
         {
@@ -48,7 +58,7 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
     else if ((dmg2 > dmg1 && fighter2->getLifePoints()>0) || fighter1->getLifePoints()<=0)
     {
         winnerdmg=&dmg2;
-        if (fighter1->getLifePoints()<=0 && dmg1==0)
+        if (fighter1->getLifePoints()<=0 && dmg1==-1)
             looserdmg=&noattack;
         else
         {
@@ -78,23 +88,26 @@ void commenceFightOneOnOne(fighter * fighter1, fighter * fighter2)
 }
 
 
-/*
+
 // EINER GEGEN EINEN KAMPF MIT DEN KLASSEN DER KÄMPFERN ÜBERGEBEN FINDET STATT
 void commenceFightOneOnOneToKO(fighter * fighter1, fighter * fighter2)
 {
-    while (fighter1->getLifePoints()>0 && fighter2->getLifePoints()>0)
+    string fighter1name=fighter1->mname;
+    string fighter2name=fighter2->mname;
+    unsigned int countfighters=createdFighters.size();
+    while (countfighters==createdFighters.size())
     {
         commenceFightOneOnOne(fighter1, fighter2);
     }
     cout << endl << "And the winner in the fight between " <<
-    fighter1->mname << " and " << fighter2->mname << " is: " << endl;
-    if (fighter1->getLifePoints()<=0)
-        cout << fighter2->mname << " with " << fighter2->getLifePoints() << " lifepoints remaining";
-    else if (fighter2->getLifePoints()<=0)
+    fighter1name << " and " << fighter2name << " is: " << endl;
+    if (fighter1)
         cout << fighter1->mname << " with " << fighter1->getLifePoints() << " lifepoints remaining";
+    else if (fighter2)
+        cout << fighter2->mname << " with " << fighter2->getLifePoints() << " lifepoints remaining";
     cout  << "!" << endl << endl;
 }
-*/
+
 
 // MENÜ ZUR AUSWAHL DER KÄMPFER UND ZUM INITIALISIEREN DES KAMPFES
 void fightOneOnOne(bool toKO)
@@ -131,7 +144,7 @@ void fightOneOnOne(bool toKO)
 
     if (toKO)
     {
-        //commenceFightOneOnOneToKO(createdFighters[fighter1], createdFighters[fighter2]);
+        commenceFightOneOnOneToKO(createdFighters[fighter1], createdFighters[fighter2]);
     }
     else
     {
@@ -187,7 +200,6 @@ void fightLastManStanding()
 			v.clear();
 			if (!fightsremaining && createdFighters.size() == 1)
 			{
-				//fighter* lastfighter = createdFighters.begin()->second;
 				cout << "The winner of the Last Man Standing event is: " << createdFighters.begin()->second->mname << endl << endl;
 			}
 		}
