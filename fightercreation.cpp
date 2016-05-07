@@ -71,9 +71,11 @@ void destroyFighters() {
 
 void deleteFighter(fighter* fighter1)
 {
+    cout << "Number of fighters before deletion: " << createdFighters.size() << endl;
     createdFighters.erase(fighter1->mname);
     delete fighter1;
     fighter1=nullptr;
+    cout << "Number of fighters after deletion: " << createdFighters.size() << endl;
 }
 
 void deleteKOedFighter(fighter* fighter1) {

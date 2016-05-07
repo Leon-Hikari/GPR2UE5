@@ -162,7 +162,7 @@ void fightLastManStanding()
 {
 	int nbfighterA;
 	int nbfighterB;
-    int numberFighters=createdFighters.size();
+    unsigned int numberFighters=createdFighters.size();
 	vector<fighter*> v;
 
 	bool fightsremaining = true;

@@ -34,4 +34,4 @@ clean:
 		rm -f ${OUTPUTNAME} *.o ${OUTPUTNAME}.tar.gz valgrind.log
 
 tar: clean
-		tar -czvf ./${OUTPUTNAME}.tar.gz *
+		tar -czvf ./${OUTPUTNAME}.tar.gz *.cpp *.h makefile
