@@ -1,3 +1,9 @@
+/**
+Grundlagen der Programmierung 2
+Übung 5
+Gruppe: Johannes Hackl, Christian Filler
+*/
+
 #ifndef FIGHTCLUB_H_INCLUDED
 #define FIGHTCLUB_H_INCLUDED
 

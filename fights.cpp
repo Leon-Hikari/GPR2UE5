@@ -1,3 +1,9 @@
+/**
+Grundlagen der Programmierung 2
+Übung 5
+Gruppe: Johannes Hackl, Christian Filler
+*/
+
 #include <iostream>
 #include <vector>
 #include <string>

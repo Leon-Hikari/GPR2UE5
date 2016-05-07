@@ -1,3 +1,9 @@
+/**
+Grundlagen der Programmierung 2
+Übung 5
+Gruppe: Johannes Hackl, Christian Filler
+*/
+
 #ifndef FIGHTERS_H_INCLUDED
 #define FIGHTERS_H_INCLUDED
 #include <string>
