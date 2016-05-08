@@ -108,13 +108,15 @@ void commenceFightOneOnOneToKO(fighter * fighter1, fighter * fighter2)
     {
         commenceFightOneOnOne(fighter1, fighter2);
     }
-    cout << endl << "And the winner in the fight between " <<
+    /*
+	cout << endl << "And the winner in the fight between " <<
     fighter1name << " and " << fighter2name << " is: " << endl;
     if (createdFighters[fighter1name])
         cout << fighter1->mname << " with " << fighter1->getLifePoints() << " lifepoints remaining";
     else if (createdFighters[fighter2name])
         cout << fighter2->mname << " with " << fighter2->getLifePoints() << " lifepoints remaining";
     cout  << "!" << endl << endl;
+	*/
 }
 
 
