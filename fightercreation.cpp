@@ -37,7 +37,7 @@ void createFighter()
             getline (cin, inputS);
 
             //Überprüfen ob Name bereits vorhanden
-            while (createdFighters[inputS])
+            while (mapfind(inputS) == true)
             {
                 cout << endl << "I'm sorry, another fighter already uses this name. Please choose another one." << endl;
                 getline (cin, inputS);
@@ -77,11 +77,11 @@ void destroyFighters() {
 
 void deleteFighter(fighter* fighter1)
 {
-    cout << "Number of fighters before deletion: " << createdFighters.size() << endl;
+    //cout << "Number of fighters before deletion: " << createdFighters.size() << endl;
     createdFighters.erase(fighter1->mname);
     delete fighter1;
     fighter1=nullptr;
-    cout << "Number of fighters after deletion: " << createdFighters.size() << endl;
+    //cout << "Number of fighters after deletion: " << createdFighters.size() << endl;
 }
 
 void deleteKOedFighter(fighter* fighter1) {
@@ -96,7 +96,7 @@ void retireFighter()
     string input;
     cout << "Which fighter do you wish to withdraw from the tournament registration?" << endl;
     getline (cin, input);
-    if(createdFighters[input])
+    if(mapfind(input) == true)
     {
         deleteFighter(createdFighters[input]);
         cout << "We have withdrawn the registration of " << input << endl << endl;

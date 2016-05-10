@@ -23,6 +23,7 @@ void retireFighter();
 
 // IN FIGHTCLUB.CPP
 void wrongInputNumber();
+bool mapfind(string name);
 int randomGenerator(int maximum, int minimum=0);
 extern map <string, fighter*> createdFighters;
 

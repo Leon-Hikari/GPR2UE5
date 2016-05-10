@@ -108,15 +108,13 @@ void commenceFightOneOnOneToKO(fighter * fighter1, fighter * fighter2)
     {
         commenceFightOneOnOne(fighter1, fighter2);
     }
-    /*
 	cout << endl << "And the winner in the fight between " <<
     fighter1name << " and " << fighter2name << " is: " << endl;
-    if (createdFighters[fighter1name])
+    if (mapfind(fighter1name) == true)
         cout << fighter1->mname << " with " << fighter1->getLifePoints() << " lifepoints remaining";
-    else if (createdFighters[fighter2name])
+    else if (mapfind(fighter2name) == true)
         cout << fighter2->mname << " with " << fighter2->getLifePoints() << " lifepoints remaining";
     cout  << "!" << endl << endl;
-	*/
 }
 
 
@@ -136,12 +134,12 @@ void fightOneOnOne(bool toKO)
         getline (cin, fighter2);
         cout << endl;
 
-        if (!createdFighters[fighter1])
+        if (mapfind(fighter1) == false)
         {
             cout << "Fighter " << fighter1 << " isn't registered in the Fight Club!" << endl;
             error=true;
         }
-        if (!createdFighters[fighter2])
+        if (mapfind(fighter2) == false)
         {
             cout << "Fighter " << fighter2 << " isn't registered in the Fight Club!" << endl;
             error=true;

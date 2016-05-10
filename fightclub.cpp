@@ -17,6 +17,15 @@ using namespace std;
 //GLOBALE KÄMPFERLISTE
 map <string, fighter*> createdFighters;
 
+bool mapfind(string name) {
+	std::map<string, fighter*>::iterator it;
+	it = createdFighters.find(name);
+
+	if (it != createdFighters.end())
+		return 1;
+	return 0;
+}
+
 //ZUFALLSGENERATOR
 int randomGenerator(int maximum, int minimum)
 {
