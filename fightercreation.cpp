@@ -47,12 +47,16 @@ void createFighter()
         switch (inputI)
         {
             case 1: createdFighters[inputS] = new warrior(inputS);
+					createdFighters[inputS]->mtype = "Warrior";
                     break;
             case 2: createdFighters[inputS] = new ninja(inputS);
+					createdFighters[inputS]->mtype = "Ninja";
                     break;
             case 3: createdFighters[inputS] = new tank(inputS);
+					createdFighters[inputS]->mtype = "Tank";
                     break;
             case 4: createdFighters[inputS] = new pinkFluffyUnicorn(inputS);
+					createdFighters[inputS]->mtype = "Pink Fluffy Unicorn";
                     break;
             case 5: return;
                     break;
@@ -73,6 +77,12 @@ void destroyFighters() {
 		delete i->second;
 	}
 	createdFighters.clear();
+}
+
+void listFighters() {
+	for (map <string, fighter*>::iterator i = createdFighters.begin(); i != createdFighters.end(); i++) {
+		cout << i->second->mname << " " << i->second->mtype << endl;
+	}
 }
 
 void deleteFighter(fighter* fighter1)

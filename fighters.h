@@ -14,6 +14,7 @@ class fighter {
 public:
     fighter(const string &name);
     const string mname;
+	string mtype;
     virtual void takesDamage(int damage);
     virtual int dealsDamage();
     virtual int returnsDamage();

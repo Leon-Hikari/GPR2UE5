@@ -18,6 +18,7 @@ void fightOneOnOne(bool toKO);
 // IN FIGHTERCREATION.CPP
 void createFighter();
 void destroyFighters();
+void listFighters();
 void deleteKOedFighter(fighter* fighter1);
 void retireFighter();
 

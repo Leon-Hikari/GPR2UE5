@@ -60,7 +60,8 @@ int main()
         endl << " 3) Battlemode: Fight to KO" <<
         endl << " 4) Register new fighter" <<
         endl << " 5) Retire one of the fighters" <<
-        endl << " 6) Leave the Fight Club" <<
+		endl << " 6) List all fighters" <<
+        endl << " 7) Leave the Fight Club" <<
         endl << endl;
 
         getline(cin, inputS);
@@ -78,7 +79,9 @@ int main()
                     break;
             case 5: retireFighter();
                     break;
-			case 6: destroyFighters();
+			case 6: listFighters();
+					break;
+			case 7: destroyFighters();
 					return 0;
                     break;
             default:    wrongInputNumber();
