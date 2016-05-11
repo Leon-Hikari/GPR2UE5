@@ -47,16 +47,16 @@ void createFighter()
         switch (inputI)
         {
             case 1: createdFighters[inputS] = new warrior(inputS);
-					createdFighters[inputS]->mtype = "Warrior: Sometimes this fighter attacks very fiercely";
+					//createdFighters[inputS]->mtype = "Warrior: Sometimes this fighter attacks very fiercely";
                     break;
             case 2: createdFighters[inputS] = new ninja(inputS);
-					createdFighters[inputS]->mtype = "Ninja: A Ninja can sometimes evade an enemy attack but still counterattack";
+					//createdFighters[inputS]->mtype = "Ninja: A Ninja can sometimes evade an enemy attack but still counterattack";
                     break;
             case 3: createdFighters[inputS] = new tank(inputS);
-					createdFighters[inputS]->mtype = "Tank: Has a chance of regaining lost hitpoints after being hit and is still standing";
+					//createdFighters[inputS]->mtype = "Tank: Has a chance of regaining lost hitpoints after being hit and is still standing";
                     break;
             case 4: createdFighters[inputS] = new pinkFluffyUnicorn(inputS);
-					createdFighters[inputS]->mtype = "Pink Fluffy Unicorn: Sometimes it attacks with its terrible rainbow-beam, sometimes it looses its will to fight";
+					//createdFighters[inputS]->mtype = "Pink Fluffy Unicorn: Sometimes it attacks with its terrible rainbow-beam, sometimes it looses its will to fight";
                     break;
             case 5: return;
                     break;
@@ -82,7 +82,7 @@ void destroyFighters() {
 void listFighters() {
     cout << "This are the registered Fighters:" << endl << endl;
 	for (map <string, fighter*>::iterator i = createdFighters.begin(); i != createdFighters.end(); i++) {
-		cout << i->second->mname << " is a " << i->second->mtype << endl;
+		cout << i->second->mname << " is a " << i->second->getClassDescription() << "." << endl;
 		cout << "This fighter currently has " << i->second->getLifePoints() << " Lifepoints, " << i->second->getOffensePoints() << " Offensepoints and " << i->second->getDefensePoints() << " Defensepoints." << endl;
 	}
 	cout << endl;

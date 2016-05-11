@@ -32,28 +32,28 @@
 	"fighters.h"
 	"fightclub.h"
 
-1462530429 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightercreation.cpp
+1462976368 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightercreation.cpp
 	<string>
 	<iostream>
 	"fighters.h"
 	"fightclub.h"
 
-1462531211 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.h
+1462976610 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.h
 	<string>
 
-1462530429 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.h
+1462975403 d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.h
 	<map>
 	<string>
 	"fighters.h"
 
-1462531211 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.cpp
+1462653726 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fighters.cpp
 	<string>
 	<iostream>
 	<stdexcept>
 	"fighters.h"
 	"fightclub.h"
 
-1462530867 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.cpp
+1462975403 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fightclub.cpp
 	<iostream>
 	<string>
 	<random>
@@ -62,9 +62,10 @@
 	"fightclub.h"
 	<ctime>
 
-1462530867 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fights.cpp
+1462962456 source:d:\eigene dateien\schule und studium\studium - informatik\grundlagen der programmierung 2\uebungen\uebung5\gpr2ue5\fights.cpp
 	<iostream>
 	<vector>
+	<string>
 	"fighters.h"
 	"fightclub.h"
 

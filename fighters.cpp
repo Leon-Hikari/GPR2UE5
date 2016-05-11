@@ -187,3 +187,8 @@ int pinkFluffyUnicorn::returnsDamage()
     }
 	return -1;
 }
+
+string fighter::getClassDescription()
+{
+    return mtype;
+}
